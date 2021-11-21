@@ -1,0 +1,15 @@
+<br>
+<h1>Restaurants</h1>
+<br>
+<ul>
+    <% @restaurants.each do |restaurant| %>
+  <li>
+    <h3 class="restaurant-name"><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+    <p class="restaurant-info">General information:
+      <%= restaurant.address %>.
+      <%= restaurant.phone_number %><%= restaurant.phone_number.nil? ? "" : "." %>
+    </p>
+    <p class="restaurant-category">Category: <%= restaurant.category.capitalize %></p>
+    <% end %>
+  </li>
+</ul>

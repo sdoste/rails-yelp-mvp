@@ -1,0 +1,25 @@
+<br>
+<h1 class="restaurant-title"><%= @restaurant.name %>
+<!--  missingpeopen link_to '<i class="fas fa-pencil-alt fa-xs"></i>'.html_safe, edit_path %>
+  missingpeopen link_to '<i class="fas fa-trash fa-xs"></i>'.html_safe, destroy_path, method: :delete, data: { confirm: "Are you sure?"} %> -->
+</h1>
+<br>
+<p>Address: <%= @restaurant.address %></p>
+<p>Phone number: <%= @restaurant.phone_number %></p>
+<p>Category: <%= @restaurant.category %></p>
+<br>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      <p>Review: <%= review.content %></p>
+      <p><%= review.rating %> Stars</p>
+      <br>
+      <p><%= link_to 'Remove this review', review_path(review),
+      method: :delete, data: { confirm: "Are you sure you want to delete this review"} %></p>
+
+  <% end %>
+</ul>
+<br>
+<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
+<br>
+<%= link_to 'Back to list', restaurants_path %>

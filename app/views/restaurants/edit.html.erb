@@ -1,0 +1,16 @@
+<br>
+<h1>Edit restaurant</h1>
+<br>
+<%= form_for (@restaurant) do |f| %>
+  <p class="form-field">Name</p>
+  <%= f.text_field :name %>
+  <p class="form-field">Address</p>
+  <%= f.text_field :address %>
+  <p class="form-field">Phone number</p>
+  <%= f.text_field :phone_number %>
+  <p class="form-field">Category</p>
+  <%= f.text_field :category %>
+  <br>
+  <%= f.submit %>
+<% end %>
+<%= link_to 'Back to list', restaurants_path %>
